@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title>BMI Calculator</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>    
+    <ion-item>
+      <ion-label floating>Height (cm)</ion-label>
+      <ion-input type="number"  [(ngModel)]="height" [clearInput]="true" placeholder="Enter Weight (KG)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Weight (kg)</ion-label>
+      <ion-input type="number" [(ngModel)]="weight" [clearInput]="true" placeholder="Enter Height (CM)"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  
+  <div style="text-align: center" padding>
+    <button block ion-button (click)="calculateBMI()">Calculate</button>
+    <br>
+    <ion-button name ="person-add-outline" [routerLink]="'/tabs/tab1'" >About Me</ion-button>
+    <ion-button name ="person-add-outline" [routerLink]="'/tabs/tab3'" >BMR</ion-button>
+  </div>
+
+  <ion-card *ngIf="bmiValue">
+    <ion-card-header>
+      BMI Calculation
+    </ion-card-header>
+    <ion-card-content>
+      <p>Person: Weight {{this.weight}} kg, Height {{this.height}} cm</p>
+      <p>BMI: {{bmiValue}}</p>
+      <p><strong>You are {{bmiMessage}}</strong></p>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+
+
+
